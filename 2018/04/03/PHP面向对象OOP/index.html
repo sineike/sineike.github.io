@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://sineike.github.io">
-  <title>Archives | Bad Person的微博</title>
+  <title>PHP面向对象OOP | Bad Person的微博</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术总结,生活趣事美文分享。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bad Person的微博">
-<meta property="og:url" content="https://sineike.github.io/archives/index.html">
+  <meta name="description" content="什么是类？  具有相同属性和方法的一个集合，类是一个抽象的概念（类是抽象的，代表一类事物，类是对象的模板）。 定义一个类 class 类名{    访问修饰符 $属性[=默认值];    访问修饰符(默认public) function 方法(){} } 定义一个类的规范：  类使用 class 关键字后加上类名定义。 类名只能有字母数字下划线组成，开头不能是数字，必须符合大驼峰法则; 属性必须要">
+<meta name="keywords" content="php,oop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP面向对象OOP">
+<meta property="og:url" content="https://sineike.github.io/2018/04/03/PHP面向对象OOP/index.html">
 <meta property="og:site_name" content="Bad Person的微博">
-<meta property="og:description" content="技术总结,生活趣事美文分享。">
+<meta property="og:description" content="什么是类？  具有相同属性和方法的一个集合，类是一个抽象的概念（类是抽象的，代表一类事物，类是对象的模板）。 定义一个类 class 类名{    访问修饰符 $属性[=默认值];    访问修饰符(默认public) function 方法(){} } 定义一个类的规范：  类使用 class 关键字后加上类名定义。 类名只能有字母数字下划线组成，开头不能是数字，必须符合大驼峰法则; 属性必须要">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-09T07:06:44.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bad Person的微博">
-<meta name="twitter:description" content="技术总结,生活趣事美文分享。">
+<meta name="twitter:title" content="PHP面向对象OOP">
+<meta name="twitter:description" content="什么是类？  具有相同属性和方法的一个集合，类是一个抽象的概念（类是抽象的，代表一类事物，类是对象的模板）。 定义一个类 class 类名{    访问修饰符 $属性[=默认值];    访问修饰符(默认public) function 方法(){} } 定义一个类的规范：  类使用 class 关键字后加上类名定义。 类名只能有字母数字下划线组成，开头不能是数字，必须符合大驼峰法则; 属性必须要">
   
     <link rel="alternative" href="/atom.xml" title="Bad Person的微博" type="application/atom+xml">
   
@@ -159,36 +161,298 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PHP面向对象OOP" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/03/PHP面向对象OOP/" class="archive-article-date">
-  	<time datetime="2018-04-03T03:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/03/PHP面向对象OOP/">PHP面向对象OOP</a>
+    <h1 class="article-title" itemprop="name">
+      PHP面向对象OOP
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/03/PHP面向对象OOP/" class="archive-article-date">
+  	<time datetime="2018-04-03T03:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>什么是类？</p>
+<p> 具有相同属性和方法的一个集合，类是一个抽象的概念（类是抽象的，代表一类事物，类是对象的模板）。</p>
+<p>定义一个类</p>
+<pre><code>class 类名{
+   访问修饰符 $属性[=默认值];
+   访问修饰符(默认public) function 方法(){}
+}
+</code></pre><p>定义一个类的规范：</p>
+<p> 类使用 class 关键字后加上类名定义。<br> 类名只能有字母数字下划线组成，开头不能是数字，必须符合大驼峰法则;<br> 属性必须要带访问修饰符，方法可以不带访问修饰符。</p>
+<p>什么是对象？<br><a id="more"></a><br> 对象是具体的，是类的一个具体实例（对象是类的一个个体实例）</p>
+<p>实例化一个对象</p>
+<pre><code>$对象名 = new 类名(); //()可以不带
+</code></pre><p>new对象的时候 ：</p>
+<p> 1、 申请内存，生成对象（属性集合）<br> 2、 如果有构造函执行<br> 3、 返回对象的地址</p>
+<p>成员属性的说明</p>
+<p> 成员属性是从某个事物提取出的，它可以是 基本数据类型(整数、小数、字符、布尔)，也可以是复合数据类型(数组、对象)</p>
+<p>访问一个成员属性</p>
+<pre><code>$对象名-&gt;属性名;
+</code></pre><p>成员方法的说明</p>
+<p> 当我们把一个函数写到 某个类中，则该函数可以称成员方法:</p>
+<p>成员方法的基本语法</p>
+<pre><code>访问修饰符号   function 函数名(参数列表){
+    //return 值;
+}      
+</code></pre><p>如何使用成员方法</p>
+<pre><code>$对象名 = new 类名();
+$对象名-&gt;类名(参数);
+</code></pre><p>构造方法<strong>construct()<br>  构造函数是类中的一个特殊函数，当我们使用new关键字实例化对象时，相当于调用了类的构造函数。<br>  构造方法 没有返回值, 它是自动被调用<br>  在php 5 中一个类可以同时有 两种形式的构造方法
+  </strong>construct() 和 类名() , 当两个同时存在的时候，优先调用__construct()<br>  主要作用是完成对新对象的初始化，并不是创建对象本身。<br>  如果没有给类自定义构造方法，则该类使用系统默认的构造方法。<br>  如果给类自定义了构造方法，则该类的默认构造方法被覆盖</p>
+<pre><code>class test{
+    public $name;
+    __construct($name){
+        $this-&gt;name = $name;
+    }
+}
+</code></pre><p>析构函数：__destruct():<br> 析构函数在对象被销毁释放之前自动调用；<br> 析构函数不能带有任何的参数；<br> 析构方法的作用主要用于，释放资源(比如释放数据库的链接，图片资源…销毁某个对象..)<br> 析构方法调用顺序是，先创建的对象后被销毁<br> 析构方法什么时候被调用时间<br>  (1)当程序（进程结束）退出时<br>  (2)当一个对象为垃圾对象的时候，该对象的析构方法也会被调用,<br>  (3)所谓垃圾对象，就是指，没有任何变量再引用它.<br>  (4)一旦一个对象成为垃圾对象，析构方法就会立即调用</p>
+<pre><code>class test{
+    public $name;
+    __destruct($name){
+        echo $this-&gt;name;
+    }
+}
+</code></pre><p>静态的变量的基本用法</p>
+<p> 1.在类中定义静态变量 </p>
+<pre><code>访问修饰符 static $变量名;
+</code></pre><p> 2.如何访问静态变量<br>    如果在类中访问  有两种方法 self::$静态变量名 , 类名::$静态变量名<br>    如果在类外访问:  有一种方法 类名::$静态变量名</p>
+<pre><code>class Child{
+        public static $name;
+        function __construct($name){
+            echo self::$name;
+        }
+    }      
+</code></pre><p>静态方法</p>
+<p> 静态方法的特点<br> 1.静态方法去操作静态变量<br> 2.静态方法不能操作非静态变量.</p>
+<p> 这里请注意 : 普通的成员方法，既可以操作非静态变量，也可以操作静态变量</p>
+<pre><code>class Child{
+  public static $name;
+  public static function test(){
+
+  }
+</code></pre><p>  } </p>
+<p>封装<br> 1、什么是封装？<br> 通过访问修饰符，将类中不需要外部访问的属性和方法进行私有化处理，以实现访问控制。<br> *注意：是实现访问控制，而不是拒绝访问。也就是说，我们私有化属性后，需要提供对应的方法，让用户通过我们提供的方法处理属性。</p>
+<p> 2、封装的作用？<br> ①使用者只关心类能够提供的功能，不关心功能实现的细节！（封装方法）<br> ②对用户的数据进行控制，防止设置不合法数据，控制返回给用户的数据（属性封装+set/get方法）</p>
+<p> php提供了三种访问控制符号.<br> 1.public  表示全局，可以在本类，类外部，子类 中使用<br> 2.protected 表示受到保护， 可以在本类, 子类中使用<br> 3.private 表示私有, 只能在本类使用  </p>
+<pre><code>class Person{
+       public $name;
+       protected  $age;
+       private  $salary;
+       function __construct(){
+       }
+
+       //获取薪水
+    public function getSalary($pass){
+        if($pass==&quot;123&quot;){
+            return $this-&gt;salary;
+        }else{
+            return &quot;sorry,你无法看&quot;;
+        }
+    }
+    public function setSalary($salary,$pass){
+        if($pass==&quot;123&quot;){
+            $this-&gt;salary = $salary;
+        }else{
+            return &quot;验证失败&quot;;
+        }
+    }
+    //修改年龄
+    public function setAge($age){
+        if($age&gt;1 &amp;&amp; $age&lt;120){
+            $this-&gt;age=$age;
+        }else {
+            echo &quot;年龄范围不对&quot;;
+        }
+    }
+    //查看年龄
+    public function getAge(){
+        return $this-&gt;age;
+    }    
+   }
+</code></pre><p>通过魔术方法<strong>set,</strong>get,<strong>isset,</strong>unset方法来操作我们的变量<br> <strong>set($key,$value):给类私有属性赋值时自动调用，调用时给方法传递两个参数：需要设置的属性名，属性值。
+ </strong>get($key,$value):读取类私有属性时自动调用，调用时给方法传递一个参数，需要读取的属性名；<br> <strong>isset($key):外部使用isset()函数检测私有属性时，自动调用。类外部使用isset();检测私有属性，默认是检测不到的。false<br> 所以，我们可以使用</strong>isset();函数，在自动调用时，返回内部检测结果。<br> <strong>unset()在对象外部使用”unset()”函数删除对象内部的私有成员属性时，自动调用”</strong>unset()”函数来帮<br> 我们删除对象内部的私有成员属性</p>
+<pre><code>class test{
+    private $name1;
+    private $name2;
+    //使用__set方法来设置属性值
+    public function __set($name,$val){
+        $this-&gt;name=$val;
+    }
+    //使用__get可以获取属性值
+    public function __get($name){
+        if(isset($name)){
+            return $this-&gt;name;
+        }else{
+            return &apos;&apos;;
+        }
+    }
+
+    public  function __isset($name) {  
+        echo &quot;isset()函数测定私有成员时，自动调用&lt;br&gt;&quot;;  
+        return isset($this-&gt;$name);  
+    }  
+    public  function __unset($name) {  
+        echo &quot;当在类外部使用unset()函数来删除私有成员时自动调用的&lt;br&gt;&quot;;  
+        unset($this-&gt;$name);  
+    }  
+}
+</code></pre><p>继承extends</p>
+<p> 什么是继承？<br> 所谓继承就是 一个子类通过extends父类，把父类的 (public / protected)属性和(public / protected)方法继承下来.<br> 子类继承父类后，相当于将父类的属性和方法copy到子类，可以直接使用$this调用。<br> PHP只能单继承，不支持一个类继承多个类。但是一个类进行多层继承。<br> 当创建子类对象的时候，默认情况下，不会自动调用父类的构造方法.<br> 当一个子类的和父类的方法或属性完全一样(public protected), 我们称为方法的覆盖 </p>
+<p> 继承的基本语法是:</p>
+<pre><code>class 类名 extends 父类名{
+
+} 
+</code></pre><p> 多层继承</p>
+<pre><code>class A{
+}
+class B extends A{
+}
+//同时继承了A和B的非私有方法和属性
+class C extends B{
+}     
+</code></pre><p>如果，子类重写了父类方法或属性,可以通过 类名::方法名()或parent::方法名()来进行调用</p>
+<pre><code>class test1{
+    public $name;
+    public function __construct(){
+        echo &quot;test1&quot;;
+    }
+
+}
+class test2 extends test1{
+    function __construct(){
+        echo &quot;test2&quot;;
+        parent::__construct();
+        test1::$name;
+    }
+}
+</code></pre><p>重载</p>
+<p> 函数名一样，通过函数的参数个数或者是参数类型不同，达到调用同一个函数名，但是可以区分不同的函数<br> php5 默认情况下不直接支持方法重载<br> php5 可以同<strong>call魔术方法，模拟一个方法重载的效果.
+ </strong>call 是它一个对象调用某个方法，而该方法不存在，则系统会自动调用__call</p>
+<pre><code>class A{
+    public function test1($p){
+        echo &quot;接收一个参数&quot;;
+        echo &quot;&lt;br/&gt;接收到参数是&quot;;
+        var_dump($p);
+    }
+    public function test2($p){
+        echo &quot;接收两个参数&lt;br/&gt;&quot;;
+        var_dump($p);
+    }
+
+    function __call($method,$p){
+        if($method==&quot;test&quot;){
+            if(count($p)==1){
+                $this-&gt;test1($p)   
+            }else if(count($p)==2){
+                $this-&gt;test2($p);
+            }
+         }
+    }  
+}             
+$a=new A();
+$a-&gt;test(1);
+$a-&gt;test(array(56,90)); 
+</code></pre><p>重写</p>
+<p> 要实现重写，要求子类的那个方法的名字和参数列表个数一摸一样，但是并不要求参数的名称一样.<br> 如果子类要去调用父类的某个方法(public / protected) 则可以使用 parent::方法名(参数..) , 父类名::方法名(参数…)<br> 在实现方法覆盖的时候，访问修饰符可以不一样 //但是必须满足: 子类的访问范围&gt;=父类的访问范围</p>
+<pre><code>class test{
+      public $name;
+      protected $price;
+      function getName(){
+      }
+  }
+  class test1 extends test{
+      //覆盖
+      function getName(){
+          echo &quot;test1&quot;;
+      }    
+  }    
+</code></pre><p>多态<br>    一个类，被多个子类继承。如果，这个类的某个方法，在多个子类中，表现出不同的功能，我们称这种行为为多态。<br>    实现多态的必要途径：<br>    ① 子类继承父类；<br>    ② 子类重写父类方法；<br>    ③ 父类引用指向子类对象<br>抽象类<br>    在实际开发中，我们可能有这样一种类,是其它类的父类，但是它本身并不需要实例化,主要用途是用于让子类来继承，这样可以到达代码复用. 同时利于项目设计者，设计类.<br>    在实现方法覆盖的时候，访问修饰符可以不一样 但是必须满足: 子类的访问范围&gt;=父类的访问范围<br>    如果一个类使用abstract 来修饰，则该类就是抽象类, 如果一个方法被abstract修饰，则该方法就是抽象方法【抽象方法就不能有方法体.】<br>    抽象类可以没有抽象方法.同时还可以有实现了的方法.<br>    如果一个类中，只要有抽象方法，则该类必须声明为abstract<br>    如果A类继承了一个抽象类B，则要求A类实现从B类继承的所有抽象方法<br>    抽象类，不能实例化。（抽象类中可能包含抽象方法，抽象方法没有方法体，实例化调用没有意义）</p>
+<pre><code>//抽象类
+abstract class test{
+    public $name;
+    protected $age;
+    //这个抽象方法没有方法体,这个方法主要是为了让子类去实现.
+    abstract public function getName();
+}
+class test1 extends test{
+    public  function getName(){
+        echo &quot;name&quot;;
+    }
+}
+
+//创建一个子类实例
+$test1=new test1();
+$test1-&gt;getName();   
+</code></pre><p>使用抽象类的作用？<br> ① 限制实例化。（抽象类是一个不完整的类，里面的抽象方法没有方法体，所以不能实例化）<br> ② 抽象类为子类的继承提供一种规范，子类继承一个抽象类，则必须包含并且实现抽象类中已定的抽象方法。</p>
+<p>接口</p>
+<p> 接口它的作用就是声明一些方法，供其它类来实现,接口还体现编程中我们希望的效果 高内聚低耦合 的特点。<br> 接口使用interface关键字声明；<br> 当一个类实现了某个接口,则要求该类必须实现这个接口的所有方法<br> 接口中的所有方法，必须都是抽象方法，接口中的抽象方法不需要也不能使用abstract修饰。<br> 接口中不能声明变量，只能使用常量并且是public<br> 接口可以继承接口，使用extends关键字可以实现多继承<br> 不能去实例化一个接口<br> 接口的方法是public 【默认就是public 】 ,不能是 protected 和private<br> 接口的方法都不能有方法体<br>什么情况下可以考虑使用接口<br> 定规范,定下规范，让别的程序员来实现<br>继承和实现接口的比较:<br> 可以认为 实现接口是对单一继承的补充.<br> 可以在不破坏类层级关系的前提下，对某个类功能扩展. </p>
+<pre><code>//定义接口
+interface test{
+    public function getName();
+}
+interface user{
+        public function user();
+    }
+//实现接口
+interface test1 implements test,user{
+    public function getName(){
+    }
+    public function user(){
+
+    }
+}
+//继承接口
+interface test2 extends test,user,test1{
+}
+</code></pre><p>final关键字<br>  如果我们希望某个类不被其它的类来继承(可能因为安全考虑…), 可以使用<br>  如果我们希望某个方法,不能子类改写，可以使用fianl 来修饰方法<br>  final关键字不能去修饰属性.</p>
+<pre><code>//修饰方法
+final class A{
+
+}
+
+//修饰类
+class A{
+    final public  function test(){
+    }
+}
+</code></pre><p>const关键字：</p>
+<p> 当你有一个属性，不希望被修改，则考虑使用const 做成常量<br> 在类中声明常量，不能是define()函数！必须使用const关键字。<br> 常量在定义的时候需要赋初值<br> 常量不能修改.<br> 常量名不能有 $, 一般是大写, 默认是public<br> 常量在类的内部使用 self::常量的名称 类名::常量的名称在类的外部使用 类名::常量的名称.</p>
+<pre><code>class A{
+    const 常量名=值;
+}
+</code></pre><p>instanceof操作符</p>
+<p>  检测一个对象，是否是某一个类的实例。（包括爹辈，爷爷辈……）</p>
+<p>__clone()</p>
+<p> 当使用clone关键字，克隆对象时，自动调用<strong>clone函数。
+ </strong>clone()函数，类似于克隆时使用的构造函数，可以给新克隆对象赋初值。<br> __clone()函数里面的$this指的是新克隆的对象</p>
+<p><strong>toString()<br> 当使用echo等输出语句，直接打印对象时调用echo $name;<br> 那么，可以指定</strong>toString()函数返回的字符串；</p>
+<pre><code>class test{
+    public $name = &apos;你好&apos;; 
+    function __toString(){
+       return &quot;hello&quot;;
+     }
+}
+$test = new test();
+echo $test-&gt;name;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,414 +468,121 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/centos7FTP的部署/" class="archive-article-date">
-  	<time datetime="2018-03-13T09:27:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/centos7FTP的部署/">centos7FTP的部署</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vsftpd</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/centos7安装开启ssh连接/" class="archive-article-date">
-  	<time datetime="2018-03-12T07:18:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/centos7安装开启ssh连接/">centos7安装开启ssh连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/centos7安装phpmyadmin/" class="archive-article-date">
-  	<time datetime="2018-03-12T06:24:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/centos7安装phpmyadmin/">centos7安装phpmyadmin</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">phpmyadmin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/centos安装phpstorm/" class="archive-article-date">
-  	<time datetime="2018-03-11T09:48:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/centos安装phpstorm/">centos安装phpstorm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">phpstorm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/linux安装GoogleChrome/" class="archive-article-date">
-  	<time datetime="2018-03-11T06:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/linux安装GoogleChrome/">linux安装GoogleChrome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/11/hexo命令/" class="archive-article-date">
-  	<time datetime="2018-01-11T03:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/11/hexo命令/">hexo常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/Centos下apache虚拟主机配置/" class="archive-article-date">
-  	<time datetime="2017-12-27T09:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/Centos下apache虚拟主机配置/">centos下apache虚拟主机配置</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://sineike.github.io/2018/04/03/PHP面向对象OOP/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/Centos7.3静态ip配置/" class="archive-article-date">
-  	<time datetime="2017-12-27T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/13/centos7FTP的部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos7FTP的部署</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/Centos7.3静态ip配置/">centos7.3静态IP配置</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/23/Linux命令学习/" class="archive-article-date">
-  	<time datetime="2017-12-23T07:53:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/23/Linux命令学习/">Linux命令学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://sineike.github.io/2018/04/03/PHP面向对象OOP/",
+  owner: 'sineike',
+  repo: 'sineike.github.io',
+  oauth: {
+    client_id: 'fb63c7bc89222985f85e',
+    client_secret: 'a41926f3253bbd1c222dc097969a0ed295f73c69',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -635,8 +606,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://sineike.github.io">
-  <title>Archives | Bad Person的微博</title>
+  <title>centos7FTP的部署 | Bad Person的微博</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术总结,生活趣事美文分享。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bad Person的微博">
-<meta property="og:url" content="https://sineike.github.io/archives/index.html">
+  <meta name="description" content="1.关闭selinux 修改selinx配置文件 vim /etc/selinux/config     SELINUX=disabled            //enforcing修改为disabled 运行“setenforce 0”使配置立即生效 setenforce 0  2.配置防火墙 firewall-cmd --zone=public --add-port=21/tcp --per">
+<meta name="keywords" content="linux,centos,vsftpd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7FTP的部署">
+<meta property="og:url" content="https://sineike.github.io/2018/03/13/centos7FTP的部署/index.html">
 <meta property="og:site_name" content="Bad Person的微博">
-<meta property="og:description" content="技术总结,生活趣事美文分享。">
+<meta property="og:description" content="1.关闭selinux 修改selinx配置文件 vim /etc/selinux/config     SELINUX=disabled            //enforcing修改为disabled 运行“setenforce 0”使配置立即生效 setenforce 0  2.配置防火墙 firewall-cmd --zone=public --add-port=21/tcp --per">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-13T10:11:29.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bad Person的微博">
-<meta name="twitter:description" content="技术总结,生活趣事美文分享。">
+<meta name="twitter:title" content="centos7FTP的部署">
+<meta name="twitter:description" content="1.关闭selinux 修改selinx配置文件 vim /etc/selinux/config     SELINUX=disabled            //enforcing修改为disabled 运行“setenforce 0”使配置立即生效 setenforce 0  2.配置防火墙 firewall-cmd --zone=public --add-port=21/tcp --per">
   
     <link rel="alternative" href="/atom.xml" title="Bad Person的微博" type="application/atom+xml">
   
@@ -159,78 +161,139 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-centos7FTP的部署" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/03/PHP面向对象OOP/" class="archive-article-date">
-  	<time datetime="2018-04-03T03:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/03/PHP面向对象OOP/">PHP面向对象OOP</a>
+    <h1 class="article-title" itemprop="name">
+      centos7FTP的部署
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/centos7FTP的部署/" class="archive-article-date">
+        
+        <a href="/2018/03/13/centos7FTP的部署/" class="archive-article-date">
   	<time datetime="2018-03-13T09:27:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/centos7FTP的部署/">centos7FTP的部署</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.关闭selinux</p>
+<p>修改selinx配置文件</p>
+<pre><code>vim /etc/selinux/config    
+SELINUX=disabled            //enforcing修改为disabled
+</code></pre><p>运行“setenforce 0”使配置立即生效</p>
+<pre><code>setenforce 0 
+</code></pre><p>2.配置防火墙</p>
+<pre><code>firewall-cmd --zone=public --add-port=21/tcp --permanent
+firewall-cmd --reload    
+</code></pre><p>3.安装vsftpd<br><a id="more"></a><br>安装vsftpd</p>
+<pre><code>yum -y install ftp vsftpd 
+</code></pre><p>安装vsftpd虚拟用户配置依赖包</p>
+<pre><code>yum install -y psmisc net-tools systemd-devel libdb-devel perl-DBI
+</code></pre><p>启动vsftpd</p>
+<pre><code>systemctl start vsftpd.service
+</code></pre><p>设置vsftpd开机启动</p>
+<pre><code>systemctl enable vsftpd.service
+</code></pre><p>4.配置vsftpd.config文件</p>
+<p>执行以下命令进行设置 </p>
+<pre><code>sed -i &quot;s/anonymous_enable=YES/anonymous_enable=NO/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
 
-        <div class="article-info info-on-right">
-          
+sed -i &quot;s/#anon_upload_enable=YES/anon_upload_enable=NO/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos; 
+
+sed -i &quot;s/#anon_mkdir_write_enable=YES/anon_mkdir_write_enable=YES/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
+
+sed -i &quot;s/#chown_uploads=YES/chown_uploads=NO/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
+
+sed -i &quot;s/#async_abor_enable=YES/async_abor_enable=YES/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
+
+sed -i &quot;s/#ascii_upload_enable=YES/ascii_upload_enable=YES/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
+
+sed -i &quot;s/#ascii_download_enable=YES/ascii_download_enable=YES/g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
+
+sed -i &quot;s/#ftpd_banner=Welcome to blah FTP service./ftpd_banner=Welcome to FTP service./g&quot; &apos;/etc/vsftpd/vsftpd.conf&apos;
+</code></pre><p>之后添加下列内容到vsftpd.conf末尾</p>
+<pre><code>use_localtime=YES
+
+listen_port=21
+
+chroot_local_user=YES
+
+idle_session_timeout=300
+
+guest_enable=YES
+
+guest_username=vsftpd
+
+user_config_dir=/etc/vsftpd/vconf
+
+data_connection_timeout=1
+
+virtual_use_local_privs=YES
+
+pasv_min_port=10060
+
+pasv_max_port=10090
+
+accept_timeout=5
+
+connect_timeout=1    
+</code></pre><p>5.创建虚拟用户文件</p>
+<p>创建配置文件</p>
+<pre><code>touch /etc/vsftpd/virtusers
+</code></pre><p>编辑虚拟用户文件（第一行账号，第二行密码，注意：不能使用root做用户名，系统保留）</p>
+<pre><code>vi /etc/vsftpd/virtusers
+name1
+123456
+name2
+123456
+</code></pre><p>6.生成虚拟用户数据文件</p>
+<pre><code>db_load -T -t hash -f /etc/vsftpd/virtusers /etc/vsftpd/virtusers.db
+</code></pre><p>设定PAM验证文件，并指定对虚拟用户数据库文件进行读取</p>
+<pre><code>chmod 600 /etc/vsftpd/virtusers.db 
+</code></pre><p>7.修改/etc/pam.d/vsftpd文件 </p>
+<p>修改前先备份 </p>
+<pre><code>cp /etc/pam.d/vsftpd /etc/pam.d/vsftpd_bak
+</code></pre><p>将auth及account的所有配置行均注释掉(如果系统为32位，下面”/lib64/“改为”/lib/“，否则配置失败)   </p>
+<pre><code>vim /etc/pam.d/vsftpd    
+auth sufficient /lib64/security/pam_userdb.so db=/etc/vsftpd/virtusers  
+account sufficient /lib64/security/pam_userdb.so db=/etc/vsftpd/virtusers
+</code></pre><p>8.新建系统用户vsftpd，用户目录为/home/vsftpd, 用户登录终端设为/bin/false(使之不能登录系统)</p>
+<pre><code>useradd vsftpd -d /home/vsftpd -s /bin/false
+
+chown -R vsftpd:vsftpd /home/vsftpd
+</code></pre><p>9.建立虚拟用户个人的vsftpd的配置文件</p>
+<p>创建虚拟用户配置文件 </p>
+<pre><code>mkdir /etc/vsftpd/vconf
+cd /etc/vsftpd/vconf
+touch name1 name2           
+mkdir -p /home/vsftpd/name1/
+mkdir -p /home/vsftpd/name2/
+</code></pre><p>编辑用户配置文件，其他用户只需更改”local_root”即可</p>
+<pre><code>vim name1
+local_root=/home/vsftpd/name1/
+write_enable=YES
+anon_world_readable_only=NO
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_other_write_enable=YES
+</code></pre><p>10.重启vsftpd服务</p>
+<pre><code>systemctl restart vsftpd.service    
+</code></pre><p>11.vsftp上传文件出现550 Could not get file size和553 Could not create file解决方法</p>
+<pre><code>http://blog.csdn.net/cmustard/article/details/53696456
+</code></pre><p>12.vsftpd配置文件详解</p>
+<pre><code>http://blog.51cto.com/yuanbin/108262    
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -250,368 +313,130 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/centos7安装开启ssh连接/" class="archive-article-date">
-  	<time datetime="2018-03-12T07:18:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/centos7安装开启ssh连接/">centos7安装开启ssh连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/centos7安装phpmyadmin/" class="archive-article-date">
-  	<time datetime="2018-03-12T06:24:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/centos7安装phpmyadmin/">centos7安装phpmyadmin</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">phpmyadmin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/centos安装phpstorm/" class="archive-article-date">
-  	<time datetime="2018-03-11T09:48:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/centos安装phpstorm/">centos安装phpstorm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">phpstorm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/linux安装GoogleChrome/" class="archive-article-date">
-  	<time datetime="2018-03-11T06:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/linux安装GoogleChrome/">linux安装GoogleChrome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/11/hexo命令/" class="archive-article-date">
-  	<time datetime="2018-01-11T03:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/11/hexo命令/">hexo常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/Centos下apache虚拟主机配置/" class="archive-article-date">
-  	<time datetime="2017-12-27T09:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/Centos下apache虚拟主机配置/">centos下apache虚拟主机配置</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://sineike.github.io/2018/03/13/centos7FTP的部署/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/Centos7.3静态ip配置/" class="archive-article-date">
-  	<time datetime="2017-12-27T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/04/03/PHP面向对象OOP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PHP面向对象OOP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/12/centos7安装开启ssh连接/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos7安装开启ssh连接</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/Centos7.3静态ip配置/">centos7.3静态IP配置</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/23/Linux命令学习/" class="archive-article-date">
-  	<time datetime="2017-12-23T07:53:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/23/Linux命令学习/">Linux命令学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://sineike.github.io/2018/03/13/centos7FTP的部署/",
+  owner: 'sineike',
+  repo: 'sineike.github.io',
+  oauth: {
+    client_id: 'fb63c7bc89222985f85e',
+    client_secret: 'a41926f3253bbd1c222dc097969a0ed295f73c69',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -635,8 +460,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
