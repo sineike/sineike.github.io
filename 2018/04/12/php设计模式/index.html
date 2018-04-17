@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://sineike.github.io">
   <title>php设计模式 | Bad Person的微博</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###工厂模式 #####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new #####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。 &amp;lt;?php //定义一个数据库连接接口 interface db{     public functi">
+  <meta name="description" content="工厂模式 通过工厂模式，或工厂方法生成对象，而不是在代码中直接new  使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。    &amp;lt;?php //定义一个数据库连接接口 interface db{     public function conn(">
 <meta name="keywords" content="php,oop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php设计模式">
 <meta property="og:url" content="https://sineike.github.io/2018/04/12/php设计模式/index.html">
 <meta property="og:site_name" content="Bad Person的微博">
-<meta property="og:description" content="###工厂模式 #####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new #####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。 &amp;lt;?php //定义一个数据库连接接口 interface db{     public functi">
+<meta property="og:description" content="工厂模式 通过工厂模式，或工厂方法生成对象，而不是在代码中直接new  使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。    &amp;lt;?php //定义一个数据库连接接口 interface db{     public function conn(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-17T02:05:11.482Z">
+<meta property="og:updated_time" content="2018-04-17T02:23:32.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php设计模式">
-<meta name="twitter:description" content="###工厂模式 #####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new #####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。 &amp;lt;?php //定义一个数据库连接接口 interface db{     public functi">
+<meta name="twitter:description" content="工厂模式 通过工厂模式，或工厂方法生成对象，而不是在代码中直接new  使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。    &amp;lt;?php //定义一个数据库连接接口 interface db{     public function conn(">
   
     <link rel="alternative" href="/atom.xml" title="Bad Person的微博" type="application/atom+xml">
   
@@ -181,9 +181,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###工厂模式</p>
-<p>#####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new</p>
-<p>#####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。</p>
+        <ul>
+<li>工厂模式<blockquote>
+<p>通过工厂模式，或工厂方法生成对象，而不是在代码中直接new<br>  使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。</p>
+</blockquote>
+</li>
+</ul>
 <pre><code>&lt;?php
 //定义一个数据库连接接口
 interface db{
@@ -278,13 +281,12 @@ $redis = new createRedis();
 $redis-&gt;createDB()-&gt;conn();//输出redis连接成功
 $orcle = new createOrcle();
 $orcle-&gt;createDB()-&gt;conn();//输出orcle连接成功
-</code></pre><p>###单例模式</p>
-<p>#####使某个类的的对象只能创建一个</p>
-<p>#####单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。</p>
-<p>#####构造函数和析构函数必须声明为私有,防止外部程序new 类从而失去单例模式的意义</p>
-<p>#####使用单例模式生成一个对象后， 该对象可以被其它众多对象所使用。</p>
-<p>#####私有的__clone()方法防止克隆对象</p>
-<p>#####单例模式的特点是4私1公：一个私有静态属性，构造方法私有，克隆方法私有，重建方法私有，一个公共静态方法。</p>
+</code></pre><ul>
+<li>单例模式<blockquote>
+<p>使某个类的的对象只能创建一个<br>  单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。<br>  构造函数和析构函数必须声明为私有,防止外部程序new 类从而失去单例模式的意义<br>  使用单例模式生成一个对象后， 该对象可以被其它众多对象所使用。<br>  私有的__clone()方法防止克隆对象<br>  单例模式的特点是4私1公：一个私有静态属性，构造方法私有，克隆方法私有，重建方法私有，一个公共静态方法。</p>
+</blockquote>
+</li>
+</ul>
 <pre><code>&lt;?php
 
 class database{
@@ -307,10 +309,15 @@ class database{
     // 声明成私有方法，禁止重建对象
     final private function __wakeup(){}
 }
-</code></pre><p>###注册模式</p>
-<p>#####全局共享和交换对象,已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。</p>
-<p>#####使用可配合工厂方法，在实例化对象时注册到全局数组上<br>     &lt;?php</p>
-<pre><code>class Register
+</code></pre><ul>
+<li>注册模式<blockquote>
+<p>全局共享和交换对象,已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。<br>  使用可配合工厂方法，在实例化对象时注册到全局数组上   </p>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;?php
+
+class Register
 {
     protected static  $objects; 
     static function set($alias,$object)
@@ -325,14 +332,12 @@ class database{
         unset(self::$objects[$alias]);//移除某个注册到树上的对象。
     }
 }
-</code></pre><p>###适配器模式(遵守开闭原则)</p>
-<p>#####接过来旧的转换成新的</p>
-<p>#####适配器模式（Adapter Pattern）属于结构型模式的一种，把一个类的接口变成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作。</p>
-<p>#####当你想使用一个已经存在的类，而它的接口不符合你的需求，或者你想创建一个可重用的类（与不兼容接口无关的类），这时候可以考虑使用适配器模式</p>
-<p>#####可以让任何两个没有关联的类一起运行</p>
-<p>#####提高了类的复用，想使用现有的类，而此类的接口标准又不符合现有系统的需要。通过适配器模式就可以让这些功能得到更好的复用。</p>
-<p>#####增加了类的透明度，客户端只关注结果</p>
-<p>#####使用适配器的时候，可以调用自己开发的功能，从而自然地扩展系统的功能。</p>
+</code></pre><ul>
+<li>适配器模式(遵守开闭原则)<blockquote>
+<p>接过来旧的转换成新的<br>  适配器模式（Adapter Pattern）属于结构型模式的一种，把一个类的接口变成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作。<br>  当你想使用一个已经存在的类，而它的接口不符合你的需求，或者你想创建一个可重用的类（与不兼容接口无关的类），这时候可以考虑使用适配器模式<br>  可以让任何两个没有关联的类一起运行<br>  提高了类的复用，想使用现有的类，而此类的接口标准又不符合现有系统的需要。通过适配器模式就可以让这些功能得到更好的复用。<br>  增加了类的透明度，客户端只关注结果<br>  使用适配器的时候，可以调用自己开发的功能，从而自然地扩展系统的功能。</p>
+</blockquote>
+</li>
+</ul>
 <pre><code>&lt;?php
 //基类  获取用户信息
 class UserInfo {
@@ -358,10 +363,12 @@ class Adapter extends UserInfo{
 }
 $UserInfoAdapter = new Adapter;
 print_r($UserInfoAdapter-&gt;getInfo());
-</code></pre><p>###策略模式</p>
-<p>#####策略模式将各种方案分离开来，让操作者根据具体的需求，动态地选择不同的策略方案。</p>
-<p>#####如果系统需要多种算法的其中一种的时候，可以把每种算法封装成具有相同接口的策略类。</p>
-<p>#####类的多种行为在条件语句中出现时，可以将相关分支重构到策略类中，替换条件语句</p>
+</code></pre><ul>
+<li>策略模式<blockquote>
+<p>策略模式将各种方案分离开来，让操作者根据具体的需求，动态地选择不同的策略方案。<br>  如果系统需要多种算法的其中一种的时候，可以把每种算法封装成具有相同接口的策略类。<br>  类的多种行为在条件语句中出现时，可以将相关分支重构到策略类中，替换条件语句</p>
+</blockquote>
+</li>
+</ul>
 <pre><code>//例子实现文章的添加修改
 //在普通情况下我们通常使用以下方式来
 class article
@@ -420,10 +427,12 @@ $output1 = new Output(new add());
 $output1-&gt;run();
 $output2 = new Output(new update());
 $output2-&gt;run();
-</code></pre><p>###观察者模式</p>
-<p>#####观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。</p>
-<p>#####一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。 </p>
-<p>#####在被观察者状态发生变化的时候，它的所有观察者都会收到通知，并自动更新。    </p>
+</code></pre><ul>
+<li>观察者模式<blockquote>
+<p>观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。<br>  一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。<br>  在被观察者状态发生变化的时候，它的所有观察者都会收到通知，并自动更新。    </p>
+</blockquote>
+</li>
+</ul>
 <pre><code>&lt;?php
 
 //被观察者接口。
@@ -495,8 +504,12 @@ $Observable = new Observable();
 $Observable-&gt;add(new Observer1());
 $Observable-&gt;add(new Observer2());
 $Observable-&gt;addOrder();
-</code></pre><p>###装饰器模式</p>
-<p>#####装饰器模式，对已有对象的部分内容或者功能进行调整，但是不需要修改原始对象结构，可以使用装饰器设计模式  </p>
+</code></pre><ul>
+<li>装饰器模式<blockquote>
+<p>装饰器模式，对已有对象的部分内容或者功能进行调整，但是不需要修改原始对象结构，可以使用装饰器设计模式  </p>
+</blockquote>
+</li>
+</ul>
 <pre><code>&lt;?php
 
 //基类 获取用户信息
@@ -766,11 +779,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">linux命令</a>
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color3">linux命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,6 +792,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">oop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">phpmyadmin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vsftpd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,14 +820,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vsftpd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">phpmyadmin</a>
               </li>
             
             <div class="clearfix"></div>
