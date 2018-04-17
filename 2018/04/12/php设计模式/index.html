@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://sineike.github.io">
-  <title>Archives | Bad Person的微博</title>
+  <title>php设计模式 | Bad Person的微博</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术总结,生活趣事美文分享。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bad Person的微博">
-<meta property="og:url" content="https://sineike.github.io/archives/index.html">
+  <meta name="description" content="###工厂模式 #####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new #####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。 &amp;lt;?php //定义一个数据库连接接口 interface db{     public functi">
+<meta name="keywords" content="php,oop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php设计模式">
+<meta property="og:url" content="https://sineike.github.io/2018/04/12/php设计模式/index.html">
 <meta property="og:site_name" content="Bad Person的微博">
-<meta property="og:description" content="技术总结,生活趣事美文分享。">
+<meta property="og:description" content="###工厂模式 #####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new #####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。 &amp;lt;?php //定义一个数据库连接接口 interface db{     public functi">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-17T02:05:11.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bad Person的微博">
-<meta name="twitter:description" content="技术总结,生活趣事美文分享。">
+<meta name="twitter:title" content="php设计模式">
+<meta name="twitter:description" content="###工厂模式 #####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new #####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。 &amp;lt;?php //定义一个数据库连接接口 interface db{     public functi">
   
     <link rel="alternative" href="/atom.xml" title="Bad Person的微博" type="application/atom+xml">
   
@@ -159,36 +161,410 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-php设计模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      php设计模式
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/12/php设计模式/" class="archive-article-date">
+
+        
+        <a href="/2018/04/12/php设计模式/" class="archive-article-date">
   	<time datetime="2018-04-12T05:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/12/php设计模式/">php设计模式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###工厂模式</p>
+<p>#####通过工厂模式，或工厂方法生成对象，而不是在代码中直接new</p>
+<p>#####使用工厂模式的好处是，可以避免当改变某个类的名字或者方法之后，不需要在调用这个类的所有的代码中都修改它的名字或者参数，则只需更改该工厂方法内容即可，为系统结构提供灵活的动态扩展机制，减少了耦合。</p>
+<pre><code>&lt;?php
+//定义一个数据库连接接口
+interface db{
+    public function conn();
+}
+//mysql 数据库连接类
+class mysql implements db{
+    function conn(){
+        echo &quot;mysql连接成功&lt;br&gt;&quot;;
+    }
+}
+//redis 数据库连接类
+class redis implements db{
+    function conn(){
+        echo &quot;redis连接成功&lt;br&gt;&quot;;
+    }
+}
+</code></pre><a id="more"></a> 
+<pre><code>////在没有工厂模式的情况下连接数据库
+$test = new mysql;
+$test-&gt;conn(); //输出mysql连接成功
+$test = new redis;
+$test-&gt;conn(); //输出redis连接成功
+//此时只是这一处实例化，如果很多地方都实例化这两个类，
+//而这两个类的名字参数发生改变，就需要更改多个地方的代码，
+//此时就需要工厂模式来解决
 
-        <div class="article-info info-on-right">
-          
+
+//简单工厂
+class Factory{
+    //发生变化只需改这里
+    static function createObj($type){
+        if($type == &apos;mysql&apos;){
+            return new mysql;
+        }elseif($type == &apos;redis&apos;){
+            return new redis;
+        }else{
+            return &quot;数据库类型不存在&lt;br&gt;&quot;;
+        }
+    }
+}
+
+//此时连接数据库就只需Factory这一个类，
+//如果数据库类发生更改就只修改Factory下的createObj方法即可，减少了耦合。
+Factory::createObj(&apos;mysql&apos;)-&gt;conn(); //输出mysql连接成功
+Factory::createObj(&apos;redis&apos;)-&gt;conn(); //输出redis连接成功
+echo Factory::createObj(&apos;oracle&apos;); //输出数据库类型不存在
+
+//如上所述当我们创建orcle数据库时没有相应的类可以实例化，
+//如果我们修改Factory这个类就违背了开闭原则（禁止修改允许扩展）
+//此时我们就用到了工厂方法来解决
+
+//工厂方法
+//定义一个创建对象接口
+interface createDB{
+    public function createDB();
+}
+
+//实例化mysql
+class createMysql implements createDB{
+     function createDB(){
+         //发生变化只需改这里
+        return new mysql;
+    }
+}
+//实例化redis
+class createRedis implements createDB{
+    function createDB(){
+        //发生变化只需改这里
+        return new redis;
+    }
+}
+//新增orcle 数据库连接类
+class orcle implements db{
+     function conn(){
+        echo &quot;orcle连接成功&lt;br&gt;&quot;;
+    }
+}
+
+//实例化orcle
+class createOrcle implements createDB{
+      function createDB(){
+        //发生变化只需改这里
+        return new orcle;
+    }
+}
+
+//调用工厂方法
+$mysql = new createMysql();
+$mysql-&gt;createDB()-&gt;conn();//输出mysql连接成功
+$redis = new createRedis();
+$redis-&gt;createDB()-&gt;conn();//输出redis连接成功
+$orcle = new createOrcle();
+$orcle-&gt;createDB()-&gt;conn();//输出orcle连接成功
+</code></pre><p>###单例模式</p>
+<p>#####使某个类的的对象只能创建一个</p>
+<p>#####单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。</p>
+<p>#####构造函数和析构函数必须声明为私有,防止外部程序new 类从而失去单例模式的意义</p>
+<p>#####使用单例模式生成一个对象后， 该对象可以被其它众多对象所使用。</p>
+<p>#####私有的__clone()方法防止克隆对象</p>
+<p>#####单例模式的特点是4私1公：一个私有静态属性，构造方法私有，克隆方法私有，重建方法私有，一个公共静态方法。</p>
+<pre><code>&lt;?php
+
+class database{
+    //声明私有的静态属性，保存实例化后的对象
+    private static $db = null;
+    //声明私有的构造方法，禁止实例化 final禁止继承
+    final private function __construct()
+    {
+    }
+    //定义一个静态的方法来获取当前类的实例化对象    
+    public static function get(){
+        //检查对象是否存在，不存在时再实例化并且保存到静态属性$db
+        if(self::$db === null){
+            self::$db = new self();
+        }
+        return self::$db;
+    }
+    // 声明成私有方法，禁止克隆对象
+    final private function __clone(){}
+    // 声明成私有方法，禁止重建对象
+    final private function __wakeup(){}
+}
+</code></pre><p>###注册模式</p>
+<p>#####全局共享和交换对象,已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。</p>
+<p>#####使用可配合工厂方法，在实例化对象时注册到全局数组上<br>     &lt;?php</p>
+<pre><code>class Register
+{
+    protected static  $objects; 
+    static function set($alias,$object)
+    {
+        self::$objects[$alias]=$object;//将对象添加到树上
+    }
+    static function get($name){
+        return self::$objects[$name];//获取某个注册到树上的对象
+    }
+    function _unset($alias)
+    {
+        unset(self::$objects[$alias]);//移除某个注册到树上的对象。
+    }
+}
+</code></pre><p>###适配器模式(遵守开闭原则)</p>
+<p>#####接过来旧的转换成新的</p>
+<p>#####适配器模式（Adapter Pattern）属于结构型模式的一种，把一个类的接口变成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作。</p>
+<p>#####当你想使用一个已经存在的类，而它的接口不符合你的需求，或者你想创建一个可重用的类（与不兼容接口无关的类），这时候可以考虑使用适配器模式</p>
+<p>#####可以让任何两个没有关联的类一起运行</p>
+<p>#####提高了类的复用，想使用现有的类，而此类的接口标准又不符合现有系统的需要。通过适配器模式就可以让这些功能得到更好的复用。</p>
+<p>#####增加了类的透明度，客户端只关注结果</p>
+<p>#####使用适配器的时候，可以调用自己开发的功能，从而自然地扩展系统的功能。</p>
+<pre><code>&lt;?php
+//基类  获取用户信息
+class UserInfo {
+
+    public function getName() {
+        return &apos;username&apos;;
+    }
+}
+//新需求获取性别
+//适配器  在不修改基类的情况下实现要求
+class Adapter extends UserInfo{
+
+    public function getSex() {
+        return &apos;男&apos;;
+    }
+
+    public function getInfo() {
+        return [
+            &apos;name&apos; =&gt; $this-&gt;getName(),
+            &apos;sex&apos; =&gt; $this-&gt;getSex()
+        ];
+    }
+}
+$UserInfoAdapter = new Adapter;
+print_r($UserInfoAdapter-&gt;getInfo());
+</code></pre><p>###策略模式</p>
+<p>#####策略模式将各种方案分离开来，让操作者根据具体的需求，动态地选择不同的策略方案。</p>
+<p>#####如果系统需要多种算法的其中一种的时候，可以把每种算法封装成具有相同接口的策略类。</p>
+<p>#####类的多种行为在条件语句中出现时，可以将相关分支重构到策略类中，替换条件语句</p>
+<pre><code>//例子实现文章的添加修改
+//在普通情况下我们通常使用以下方式来
+class article
+{
+    public function run($type = &apos;&apos;)
+    {
+        if ($type === &apos;add&apos;) {
+            echo &apos;添加成功&lt;br&gt;&apos;;
+        } elseif ($type === &apos;update&apos;) {
+            echo &apos;修改成功&lt;br&gt;&apos;;
+        } else {
+            echo &apos;非法操作&lt;br&gt;&apos;;
+        }
+    }
+}
+$type = &apos;update&apos;;
+$article = new article();
+$article-&gt;run($type);
+
+
+//上述例子如果后期又加入了删除等操作，那我们又不能去修改原来的类，此时就用到了策略模式
+
+interface Iarticle{
+    public function run();
+}
+
+class add implements Iarticle{
+
+    public function run(){
+        echo &apos;添加成功&lt;br&gt;&apos;;
+    }
+}
+
+class update implements Iarticle{
+    public function run(){
+        echo &apos;修改成功&lt;br&gt;&apos;;
+    }
+}
+
+class Output
+{
+    private $outputStrategy;
+
+    public function __construct(Iarticle $outputStrategy)
+    {
+        $this-&gt;outputStrategy = $outputStrategy;
+    }
+
+    public function run()
+    {
+         $this-&gt;outputStrategy-&gt;run();
+    }
+}
+
+$output1 = new Output(new add());
+$output1-&gt;run();
+$output2 = new Output(new update());
+$output2-&gt;run();
+</code></pre><p>###观察者模式</p>
+<p>#####观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。</p>
+<p>#####一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。 </p>
+<p>#####在被观察者状态发生变化的时候，它的所有观察者都会收到通知，并自动更新。    </p>
+<pre><code>&lt;?php
+
+//被观察者接口。
+interface Event{
+    public function add(Observer $observer);
+    public function delete(Observer $observer);
+    public function notify();
+}
+
+//被观察者
+class Observable implements  Event{
+
+    // 保存观察者
+    private $observers = array();
+
+    //添加观察者
+    function add(Observer $observer){
+        $key = array_search($observer, $this-&gt;observers);
+        if ($key === false) {
+            $this-&gt;observers[] = $observer;
+        }
+    }
+
+    //删除观察者
+    public function delete(Observer $observer)
+    {
+        $key = array_search($observer, $this-&gt;observers);
+        if ($key !== false) {
+            unset($this-&gt;observers[$key]);
+        }
+    }
+
+    //遍历调用观察者的update()方法进行通知
+    public function notify()
+    {
+        foreach ($this-&gt;observers as $observer) {
+            $observer-&gt;update($this);
+        }
+    }
+
+    //添加订单
+    public function addOrder()
+    {
+        $this-&gt;notify();
+    }
+}
+
+
+//观察者接口。
+interface Observer{
+    public function update();
+}
+
+//观察者1
+class Observer1 implements Observer{
+    function update(){
+        echo &quot;逻辑1&lt;br&gt;&quot;;
+    }
+}
+
+//观察者2
+class Observer2 implements Observer{
+    function update(){
+        echo &quot;逻辑2&lt;br&gt;&quot;;
+    }
+}
+
+$Observable = new Observable();
+$Observable-&gt;add(new Observer1());
+$Observable-&gt;add(new Observer2());
+$Observable-&gt;addOrder();
+</code></pre><p>###装饰器模式</p>
+<p>#####装饰器模式，对已有对象的部分内容或者功能进行调整，但是不需要修改原始对象结构，可以使用装饰器设计模式  </p>
+<pre><code>&lt;?php
+
+//基类 获取用户信息
+class userInfo{
+
+    protected $userList = [];
+
+    public function __construct($list)
+    {
+        $this-&gt;userList = $list;
+    }
+
+    public function getUserInfo(){
+        return $this-&gt;userList;
+    }
+}
+
+//装饰器类 数组按照年龄倒叙
+class desc extends userInfo{
+
+    protected $obj = null;
+
+    public function __construct(userInfo $obj)
+    {
+        $this-&gt;obj = $obj;
+    }
+
+    public function getUserInfo(){
+
+        $userList = $this-&gt;obj-&gt;getUserInfo();
+        $sort = array(
+            &apos;direction&apos; =&gt; &apos;SORT_DESC&apos;,
+            &apos;field&apos;     =&gt; &apos;age&apos;,
+        );
+        $arr = array();
+        foreach($userList AS $k =&gt; $v){
+            foreach($v AS $ke=&gt;$va){
+                $arr[$ke][$k] = $va;
+            }
+        }
+        array_multisort($arr[$sort[&apos;field&apos;]], constant($sort[&apos;direction&apos;]), $userList);
+        return $userList;
+    }
+}
+
+$arr = [
+    0 =&gt; [
+        &apos;sex&apos; =&gt; &apos;女&apos;,
+        &apos;name&apos;=&gt; &apos;小红&apos;,
+        &apos;age&apos; =&gt; &apos;9&apos;,
+    ],
+    1 =&gt; [
+        &apos;sex&apos; =&gt; &apos;男&apos;,
+        &apos;name&apos;=&gt; &apos;小明&apos;,
+        &apos;age&apos; =&gt; &apos;10&apos;,
+    ]
+];
+$userInfo = new desc(new userInfo($arr));
+$res = $userInfo-&gt;getUserInfo();
+print_r($res);
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,415 +580,96 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/03/PHP面向对象OOP/" class="archive-article-date">
-  	<time datetime="2018-04-03T03:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/03/PHP面向对象OOP/">PHP面向对象OOP</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/centos7FTP的部署/" class="archive-article-date">
-  	<time datetime="2018-03-13T09:27:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/centos7FTP的部署/">centos7FTP的部署</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vsftpd</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/centos7安装开启ssh连接/" class="archive-article-date">
-  	<time datetime="2018-03-12T07:18:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/centos7安装开启ssh连接/">centos7安装开启ssh连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/centos7安装phpmyadmin/" class="archive-article-date">
-  	<time datetime="2018-03-12T06:24:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/centos7安装phpmyadmin/">centos7安装phpmyadmin</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">phpmyadmin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/centos安装phpstorm/" class="archive-article-date">
-  	<time datetime="2018-03-11T09:48:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/centos安装phpstorm/">centos安装phpstorm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">phpstorm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/linux安装GoogleChrome/" class="archive-article-date">
-  	<time datetime="2018-03-11T06:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/linux安装GoogleChrome/">linux安装GoogleChrome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/11/hexo命令/" class="archive-article-date">
-  	<time datetime="2018-01-11T03:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/11/hexo命令/">hexo常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/Centos下apache虚拟主机配置/" class="archive-article-date">
-  	<time datetime="2017-12-27T09:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/Centos下apache虚拟主机配置/">centos下apache虚拟主机配置</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://sineike.github.io/2018/04/12/php设计模式/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/Centos7.3静态ip配置/" class="archive-article-date">
-  	<time datetime="2017-12-27T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/03/PHP面向对象OOP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP面向对象OOP</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/Centos7.3静态ip配置/">centos7.3静态IP配置</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -635,8 +692,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
